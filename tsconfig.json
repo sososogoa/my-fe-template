@@ -1,16 +1,44 @@
 {
+    "extends": "./tsconfig.app.json",
     "compilerOptions": {
-        "moduleResolution": "bundler",
-        "allowSyntheticDefaultImports": true,
-        "target": "ESNext",
+        "target": "ES2020",
+        "useDefineForClassFields": true,
+        "lib": ["ES2020", "DOM", "DOM.Iterable"],
         "module": "ESNext",
-        "lib": ["DOM", "ESNext"],
-        "jsx": "react-jsx",
+        "skipLibCheck": true,
         "baseUrl": ".",
         "paths": {
-            "@/*": ["src/*"]
+            "@/*": ["src/*"],
+            "@components/*": ["src/components/*"],
+            "@features/*": ["src/features/*"],
+            "@shared/*": ["src/shared/*"],
+            "@layouts/*": ["src/layouts/*"],
+            "@pages/*": ["src/pages/*"],
+            "@utils/*": ["src/utils/*"],
+            "@types/*": ["src/types/*"],
+            "@data/*": ["src/data/*"],
+            "@assets/*": ["src/assets/*"]
         },
-        "types": ["node"]
+
+        /* Bundler mode */
+        "moduleResolution": "bundler",
+        "allowImportingTsExtensions": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "jsx": "react-jsx",
+        "verbatimModuleSyntax": false,
+
+        /* Linting */
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "noImplicitReturns": true,
+        "forceConsistentCasingInFileNames": true
     },
-    "include": ["src", "*.ts"]
+    "include": ["src"],
+    "references": [{ "path": "./tsconfig.node.json" }]
 }
