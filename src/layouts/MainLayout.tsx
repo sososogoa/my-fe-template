@@ -1,17 +1,13 @@
-import { ReactNode } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router';
+import { Link } from 'react-router';
 
-interface MainLayoutProps {
-  children?: ReactNode;
-}
-
-const MainLayout = ({ children }: MainLayoutProps) => {
+const MainLayout = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-white shadow-sm">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <Link to="/" className="text-xl font-bold text-primary-600 hover:text-primary-700">
+          <Link to="/" className="text-xl font-bold text-blue-600 hover:text-blue-700">
             My App
           </Link>
           <div className="flex items-center space-x-4">
@@ -27,7 +23,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {children || <Outlet />}
+        <Outlet />
       </main>
 
       {/* Footer */}
